@@ -27,7 +27,7 @@ export const Library = () => {
             <span>Add new <b>Word</b></span>
             <input value={value} onChange={onTextChanged} type="text"/>
             <button onClick={addNewWord}>
-                Button
+                ADD
             </button>
             <div>
                 <ul>
@@ -42,7 +42,7 @@ export const Library = () => {
                         <li>{item.learn}</li>
                         <div>
                             <button onClick={() => deleteWord(index)}>
-                                Button
+                                DELETE
                             </button>
                         </div>
                     </ul>
