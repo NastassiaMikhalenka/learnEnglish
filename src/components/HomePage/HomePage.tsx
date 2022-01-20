@@ -5,7 +5,9 @@ export const HomePage = () => {
 
     return (
         <div>
-            Home
+            <div>
+                Container
+            </div>
         </div>
     )
 };
