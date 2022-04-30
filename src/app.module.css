@@ -6,7 +6,7 @@ h3 {
 .progressBar {
     position: absolute;
     height: 12px;
-    background-image: url("./utils/img/progress-bar.svg");
+    background-image: url("utils/img/progress-bar.svg");
     border-radius: 0 20px 20px 0;
     width: 0;
     transition: .6s;
@@ -22,7 +22,7 @@ h3 {
 .btnBack, .btnNext {
     box-shadow: 2px 2px 5px rgba(10, 46, 82, 0.16), -8px -8px 40px rgba(255, 255, 255, 0.56), 8px 8px 15px rgba(0, 0, 0, 0.17);
     border-radius: 50px;
-    background-image: url("./utils/img/arrow.svg");
+    background-image: url("utils/img/arrow.svg");
     height: 40px;
     width: 90px;
     background-repeat: no-repeat;

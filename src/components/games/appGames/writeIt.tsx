@@ -27,15 +27,21 @@ export const WriteIt = ({playWords, wordIndex, setWordIndex, correctWords, error
                 alert('Game over!')
             }
             input.current.value = ''
+
         } else {
             setErrorWords(errorWords + 1)
         }
+    }
+
+    const newGame = () =>{
+        setRandomWords(randomWords)
     }
 
     return (
         <section>
             <span>Write a translation for this word</span>
             <h3>{randomWords[wordIndex].word}</h3>
+            <button onClick={newGame}>New Game</button>
             <form onSubmit={checkWord} className={styles.writeWordBlock}>
                 <input ref={input} type="text"/>
                 <button className={styles.btnOk}>Ok</button>
