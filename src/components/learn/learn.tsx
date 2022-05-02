@@ -3,15 +3,15 @@ import styles from "../../app.module.css";
 import {useSelector} from "react-redux";
 import {rootReducerType} from "../../state/store";
 import {initialStateType} from "../../state/library_reducer";
+import {speak} from "../../utils/speak";
+import {ProgressBar} from "../common/progressBar";
 
 type PropsType = {
     wordIndex: any
     setWordIndex: any
-    speak: (any: string) => void
 }
 
-
-export const Learn = ({ wordIndex, speak, setWordIndex}: PropsType) => {
+export const Learn = ({ wordIndex, setWordIndex}: PropsType) => {
     let library = useSelector<rootReducerType, initialStateType>(state => state.library)
 
     useEffect(() => {
@@ -20,14 +20,12 @@ export const Learn = ({ wordIndex, speak, setWordIndex}: PropsType) => {
     }, [wordIndex])
 
     const progressBarWidth = {
-        width: `${(100 / library.slice(-10).length) * (wordIndex + 1)}vw`
+        width: `${(100 / library.slice(-(library.length)).length) * (wordIndex + 1)}vw`
     };
 
     return (
         <>
-            <div className={styles.progressBarContainer}>
-                <div className={styles.progressBar} style={progressBarWidth}> </div>
-            </div>
+            <ProgressBar wordIndex={wordIndex}/>
             <section style={{textAlign: 'center'}}>
                 {
                     library.length === 0

@@ -2,17 +2,17 @@ import React, {useEffect, useState} from 'react';
 import styles from './app.module.css';
 import {Header} from "./components/header/header";
 import {Dashboard} from "./components/dashboard/dashboard";
-import {NavLink, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 
 import {Library} from "./components/library/library";
 import {Learn} from "./components/learn/learn";
 import {Games} from "./components/games/games";
-import {WriteIt} from "./components/games/appGames/writeIt";
-import {CheckIt} from "./components/games/appGames/checkIt";
 import {useSelector} from "react-redux";
 import {rootReducerType} from "./state/store";
 import {initialStateType} from "./state/library_reducer";
-import {PutIt} from "./components/games/appGames/putIt";
+import {useCookies} from "react-cookie";
+import games from './utils/index'
+import {NavGames} from "./components/games/navGames";
 
 export const PATH = {
     HOME: '/dashboard',
@@ -27,21 +27,15 @@ function App() {
     const [playWords, setPlayWords] = useState(library.slice(-10))
     const [correctWords, setCorrectWords] = useState(0)
     const [errorWords, setErrorWords] = useState(0)
-    const [points, setPoints] = useState(0)
+    let [cookie, setCookie] = useCookies(['points']);
+    const [points, setPoints] = useState(+cookie.points || 0)
 
     useEffect(() => {
-        setPoints(points + correctWords)
+        if (correctWords) {
+            setPoints(points + 1)
+            setCookie('points', points + 1)
+        }
     }, [correctWords])
-
-    const progressBarWidth = {
-        width: `${(100 / library.slice(-10).length) * (wordIndex + 1)}vw`
-    };
-
-    const speak = (word: string) => {
-        const speakInstance = new SpeechSynthesisUtterance(word);
-        speakInstance.voice = speechSynthesis.getVoices()[51];
-        speechSynthesis.speak(speakInstance);
-    };
 
     const nextWord = () => {
         if (wordIndex !== playWords.length - 1) {
@@ -55,102 +49,38 @@ function App() {
     return (
         <>
             <Header/>
-            <div>
+            <>
                 <Routes>
-                    <Route path={PATH.HOME} element={<Dashboard/>}/>
+                    <Route path={'/'} element={<Dashboard points={points}/>}/>
+                    <Route path={PATH.HOME} element={<Dashboard points={points}/>}/>
                     <Route path={PATH.LIBRARY} element={<Library/>}/>
-                    <Route path={PATH.LEARN} element={ <Learn wordIndex={wordIndex} setWordIndex={setWordIndex} speak={speak}/>}/>
+                    <Route path={PATH.LEARN}
+                           element={<Learn wordIndex={wordIndex} setWordIndex={setWordIndex}/>}/>
                     <Route path={PATH.GAMES} element={<Games/>}/>
-                    {/*//Game*/}
-                    <Route path={'games/game/write-it'} element={
-                        <>
-                            <div className={styles.progressBarContainer}>
-                                <div className={styles.progressBar} style={progressBarWidth}> </div>
-                            </div>
-                            <div>
-                                <NavLink to={PATH.GAMES}> <div className={styles.btnBack}> </div> </NavLink>
-                                <nav className={styles.gameNav}>
-                                    <ul className={styles.results}>
-                                        <li>Errors: {errorWords}</li>
-                                        <li>Correct: {correctWords}</li>
-                                        <li>Points: {points}</li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <section className={styles.gameContainer}>
-                                <WriteIt
-                                    speak={speak}
-                                    correctWords={correctWords}
-                                    setCorrectWords={setCorrectWords}
-                                    setErrorWords={setErrorWords}
+                    {
+                        games.map((game, i) => <Route path={game.path} element={
+                            <>
+                                <NavGames
                                     errorWords={errorWords}
-                                    playWords={playWords}
-                                    wordIndex={wordIndex} setWordIndex={setWordIndex}/>
-                            </section>
-                        </>
-                    }/>
-                    {/*//Game*/}
-                    <Route path={'games/game/check-it'} element={
-                        <>
-                            <div className={styles.progressBarContainer}>
-                                <div className={styles.progressBar} style={progressBarWidth}> </div>
-                            </div>
-                            <div>
-                                <NavLink to={PATH.GAMES}> <div className={styles.btnBack}> </div></NavLink>
-                                <nav className={styles.gameNav}>
-                                    <ul className={styles.results}>
-                                        <li>Errors: {errorWords}</li>
-                                        <li>Correct: {correctWords}</li>
-                                        <li>Points: {points}</li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <section className={styles.gameContainer}>
-                                <CheckIt
-                                    speak={speak}
                                     correctWords={correctWords}
-                                    setCorrectWords={setCorrectWords}
-                                    setErrorWords={setErrorWords}
-                                    errorWords={errorWords}
-                                    playWords={playWords}
-                                    wordIndex={wordIndex} setWordIndex={setWordIndex}
-                                />
-                            </section>
-                        </>
-                    }/>
-                    {/*// Game*/}
-                    <Route path={'games/game/put-it'} element={
-                        <>
-                            <div className={styles.progressBarContainer}>
-                                <div className={styles.progressBar} style={progressBarWidth}> </div>
-                            </div>
-                            <div>
-                                <NavLink to={PATH.GAMES}>
-                                    <div className={styles.btnBack}> </div>
-                                </NavLink>
-                                <nav className={styles.gameNav}>
-                                    <ul className={styles.results}>
-                                        <li>Errors: {errorWords}</li>
-                                        <li>Correct: {correctWords}</li>
-                                        <li>Points: {points}</li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <section className={styles.gameContainer}>
-                                <PutIt
-                                    nextWord={nextWord}
-                                    playWords={playWords}
+                                    points={points}
                                     wordIndex={wordIndex}
-                                    correctWords={correctWords}
-                                    setCorrectWords={setCorrectWords}
-                                    setErrorWords={setErrorWords}
-                                    errorWords={errorWords}
                                 />
-                            </section>
-                        </>
-                    }/>
+                                <section className={styles.gameContainer}>
+                                    <game.element
+                                        nextWord={nextWord}
+                                        correctWords={correctWords}
+                                        setCorrectWords={setCorrectWords}
+                                        setErrorWords={setErrorWords}
+                                        errorWords={errorWords}
+                                        playWords={playWords}
+                                        wordIndex={wordIndex} setWordIndex={setWordIndex}/>
+                                </section>
+                            </>
+                        }/>)
+                    }
                 </Routes>
-            </div>
+            </>
         </>
     );
 }

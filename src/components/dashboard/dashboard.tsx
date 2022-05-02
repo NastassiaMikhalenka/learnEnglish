@@ -2,8 +2,11 @@ import React from "react";
 import styles from './dashboard.module.css';
 import btn from '../../utils/img/play.svg'
 
+type PropsType = {
+    points: any
+}
 
-export const Dashboard = () => {
+export const Dashboard = ({points}: PropsType) => {
     return (
         <section className={styles.dashboardContainer}>
             <div className={styles.gameBlock}>
@@ -15,13 +18,13 @@ export const Dashboard = () => {
             </div>
             <div className={styles.pointsBlock}>
                 <span>Common experience</span>
-                <h3>238 points</h3>
+                <h3>{points} points</h3>
             </div>
             <div className={styles.levelBlock}>
                 <span>Level</span>
-                <h3>7 level</h3>
+                <h3>{(0.2 * Math.sqrt(points)).toFixed()} level</h3>
                 <p>Learn 750 new world in one course</p>
-                <div className={styles.levelBackground}></div>
+                <div className={styles.levelBackground}> </div>
             </div>
         </section>
     )

@@ -1,5 +1,6 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import styles from './appGames.module.css'
+import {speak} from "../../../utils/speak";
 
 type PropsType = {
     playWords: any
@@ -9,7 +10,6 @@ type PropsType = {
     errorWords: any
     setCorrectWords: any
     setErrorWords: any
-    speak: any
 }
 
 export const CheckIt = ({
@@ -20,7 +20,6 @@ export const CheckIt = ({
                             errorWords,
                             setCorrectWords,
                             setErrorWords,
-                            speak
                         }: PropsType) => {
     // const [randomWords, setRandomWords] = useState(playWords.sort(() => Math.random() - 0.5))
     const randomWords = useMemo(() => playWords.sort(() => Math.random() - 0.5), [])

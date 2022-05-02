@@ -12,10 +12,6 @@ export const PATH = {
 export const Nav = () => {
     return (
         <nav className={styles.nav}>
-            {/*<a href={""}>HOME</a>*/}
-            {/*<a href={""}>GAMES</a>*/}
-            {/*<a href={""}>LIBRARY</a>*/}
-            {/*<a href={""}>LEARN</a>*/}
             <NavLink to={PATH.HOME}>HOME</NavLink>
             <NavLink to={PATH.GAMES}>GAMES</NavLink>
             <NavLink to={PATH.LIBRARY}>LIBRARY</NavLink>

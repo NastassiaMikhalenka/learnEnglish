@@ -13,6 +13,7 @@ h3 {
 }
 
 .progressBarContainer {
+    width: 100vw;
     position: relative;
     height: 12px;
     background: #E9EBF1;

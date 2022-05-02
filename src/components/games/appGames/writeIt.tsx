@@ -1,5 +1,6 @@
 import React, {useRef, useState} from "react";
 import styles from './appGames.module.css'
+import {speak} from "../../../utils/speak";
 
 type PropsType = {
     playWords: any
@@ -9,10 +10,9 @@ type PropsType = {
     errorWords: any
     setCorrectWords: any
     setErrorWords: any
-    speak: any
 }
 
-export const WriteIt = ({playWords, wordIndex, setWordIndex, correctWords, errorWords, setCorrectWords, setErrorWords, speak}: PropsType) => {
+export const WriteIt = ({playWords, wordIndex, setWordIndex, correctWords, errorWords, setCorrectWords, setErrorWords}: PropsType) => {
     const input = useRef() as React.MutableRefObject<HTMLInputElement>
     const [randomWords, setRandomWords] = useState(playWords.sort(() => Math.random() - 0.5))
 
