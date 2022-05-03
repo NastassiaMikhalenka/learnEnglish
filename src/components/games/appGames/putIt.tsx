@@ -7,18 +7,19 @@ import {rootReducerType} from "../../../state/store";
 type PropsType = {
     playWords: any
     nextWord: any
-    wordIndex: any
+    // wordIndex: any
 }
 
 export const PutIt = ({
                           playWords,
                           nextWord,
-                          wordIndex,
+                          // wordIndex,
                       }: PropsType) => {
     const randomWords = useMemo(() => playWords.sort(() => Math.random() - 0.5), [])
     const dispatch = useDispatch()
     const [arrPutLetter, setArrPutLetter] = useState([]);
     const [splitWords, setSplitWords] = useState([]);
+    let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
 
     let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)
     let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)

@@ -5,9 +5,6 @@ import deleteBtn from '../../utils/img/delete.svg';
 import {useDispatch, useSelector} from "react-redux";
 import {addNewWordAC, deleteWordAC, initialStateType} from "../../state/library_reducer";
 import {rootReducerType} from "../../state/store";
-// import {useDispatch, useSelector} from "react-redux";
-// import {rootReducerType} from "../../state/store";
-// import {deleteWordAC, initialStateType, addNewWordAC} from "../../state/library_reducer";
 
 type PropsType = {
     // library: Array<any>
@@ -24,7 +21,8 @@ export const Library = (props: PropsType) => {
         dispatch(deleteWordAC(id))
     }
 
-    const addNewWord = async () => {
+    const addNewWord = async (e: any) => {
+        e.preventDefault()
         const response = await fetch(`http://tmp.myitschool.org/API/translate/?source=ru&target=en&word=${value}`)
         const translation = await response.json()
         // console.log(translation.translate)
@@ -32,24 +30,6 @@ export const Library = (props: PropsType) => {
         setValue('')
     }
 
-    // const addNewWord = async (e: any) => {
-    //     e.preventDefault()
-    //     const response = await fetch(`http://tmp.myitschool.org/API/translate/?source=ru&target=en&word=${value}`)
-    //     const translation = await response.json()
-    //     // console.log(translation.translate)
-    //     const updateLibrary = [...props.library,
-    //         {word: translation.word, translate: translation.translate, learn: 0}]
-    //     props.setLibrary(updateLibrary)
-    //     setValue('')
-    //     localStorage.setItem('library', JSON.stringify(updateLibrary))
-    //     // dispatch(addNewWordAC(translation.word, translation.translate));
-    // }
-
-    // const deleteWord = (id: number) => {
-    //     const updateLibrary = props.library.filter((word, index) => index !== id)
-    //     props.setLibrary(updateLibrary)
-    //     localStorage.setItem('library', JSON.stringify(updateLibrary))
-    // }
 
     return (
         <section className={styles.libraryBlock}>

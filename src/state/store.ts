@@ -22,4 +22,6 @@ store.subscribe(() => {
 
 export type rootReducerType = ReturnType<typeof rootReducer>;
 
+// export type red = {library: {learn: number, word: string, translate: string}[]}
+
 export type AppStoreType = typeof store

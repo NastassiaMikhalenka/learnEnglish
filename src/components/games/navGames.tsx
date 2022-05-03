@@ -1,20 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from "../../app.module.css";
 import {NavLink} from "react-router-dom";
 import {PATH} from "../../App";
 import {useSelector} from "react-redux";
 import {rootReducerType} from "../../state/store";
 import {ProgressBar} from "../common/progressBar";
+import {initialStateType} from "../../state/library_reducer";
 
 
 type PropsType = {
-    points: number
+//     playWords: any
+//     points: number
     wordIndex: any
 }
 
-export const NavGames = ({points, wordIndex }: PropsType) => {
+export const NavGames = ({
+// playWords
+                             // points,
+                             wordIndex
+}: PropsType) => {
+    let library = useSelector<rootReducerType, initialStateType>(state => state.library)
     let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)
     let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
+    let points = useSelector<rootReducerType, number>(state => state.usersInfo.points)
 
     return (
         <>

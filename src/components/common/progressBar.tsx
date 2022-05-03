@@ -6,12 +6,17 @@ import {initialStateType} from "../../state/library_reducer";
 
 type PropsType = {
     wordIndex: any
+    playWords?: any
 }
-export const ProgressBar = ({wordIndex}: PropsType) => {
+export const ProgressBar = ({wordIndex, playWords}: PropsType) => {
     let library = useSelector<rootReducerType, initialStateType>(state => state.library)
 
+    // const progressBarWidth = {
+    //     width: `${(100 / library.slice(-(library.length - 1)).length) * (wordIndex + 1)}vw`
+    // };
+
     const progressBarWidth = {
-        width: `${(100 / library.slice(-(library.length - 1)).length) * (wordIndex + 1)}vw`
+        width: `${(100 / library.slice(-10).length) * (wordIndex + 1)}vw`
     };
 
     return (

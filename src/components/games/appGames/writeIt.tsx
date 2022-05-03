@@ -1,22 +1,25 @@
 import React, {useRef, useState} from "react";
 import styles from './appGames.module.css'
 import {speak} from "../../../utils/speak";
-import {plusCorrectWordAC, plusErrorWordAC} from "../../../state/user-reducer";
+import {plusCorrectWordAC, plusErrorWordAC, wordIndexAC} from "../../../state/user-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../../../state/store";
 
 type PropsType = {
     playWords: any
-    wordIndex: any
-    setWordIndex: any
+    // wordIndex: any
+    // setWordIndex: any
 }
 
-export const WriteIt = ({playWords, wordIndex, setWordIndex}: PropsType) => {
+export const WriteIt = ({playWords,
+                            // wordIndex, setWordIndex
+}: PropsType) => {
     const input = useRef() as React.MutableRefObject<HTMLInputElement>
     const [randomWords, setRandomWords] = useState(playWords.sort(() => Math.random() - 0.5))
     let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)
     let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
     const dispatch = useDispatch()
+    let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
 
     const checkWord = (e: any) => {
         e.preventDefault()
@@ -24,7 +27,8 @@ export const WriteIt = ({playWords, wordIndex, setWordIndex}: PropsType) => {
             speak(randomWords[wordIndex].translate)
             dispatch(plusCorrectWordAC(correctWords))
             if (wordIndex !== playWords.length - 1) {
-                setWordIndex(wordIndex + 1)
+                dispatch(wordIndexAC(wordIndex))
+                // setWordIndex(wordIndex + 1)
             } else {
                 alert('Game over!')
             }
