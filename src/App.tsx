@@ -13,6 +13,7 @@ import {initialStateType} from "./state/library_reducer";
 import {useCookies} from "react-cookie";
 import games from './utils/index'
 import {NavGames} from "./components/games/navGames";
+import {NotFound} from "./components/notFound/notFound";
 
 export const PATH = {
     HOME: '/dashboard',
@@ -73,6 +74,7 @@ function App() {
                             </>
                         }/>)
                     }
+                    <Route path={"/*"} element={<NotFound/>}/>
                 </Routes>
             </>
         </>
