@@ -1,29 +1,28 @@
 import React, {useEffect, useMemo, useState} from "react";
 import styles from './appGames.module.css'
+import {plusCorrectWordAC, plusErrorWordAC} from "../../../state/user-reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {rootReducerType} from "../../../state/store";
 
 type PropsType = {
     playWords: any
     nextWord: any
-    setCorrectWords: any
     wordIndex: any
-    correctWords: any
-    errorWords: any
-    setErrorWords: any
 }
 
 export const PutIt = ({
                           playWords,
                           nextWord,
-                          setCorrectWords,
                           wordIndex,
-                          correctWords,
-                          errorWords,
-                          setErrorWords
                       }: PropsType) => {
     const randomWords = useMemo(() => playWords.sort(() => Math.random() - 0.5), [])
-
+    const dispatch = useDispatch()
     const [arrPutLetter, setArrPutLetter] = useState([]);
     const [splitWords, setSplitWords] = useState([]);
+
+    let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)
+    let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
+
     useEffect(() => {
         setSplitWords(randomWords[wordIndex].translate.split('').sort())
     }, [wordIndex])
@@ -38,11 +37,11 @@ export const PutIt = ({
         if (arrPutLetter.length === currentWord.length - 1) {
             let fullWord = currentLettersArray.join('');
             if (fullWord === currentWord) {
-                setCorrectWords(correctWords + 1);
+                dispatch(plusCorrectWordAC(correctWords))
                 nextWord();
                 setArrPutLetter([]);
             } else {
-                setErrorWords(errorWords + 1);
+                dispatch(plusErrorWordAC(errorWords))
                 nextWord();
                 setArrPutLetter([]);
             }

@@ -23,11 +23,10 @@ export const PATH = {
 
 function App() {
     let library = useSelector<rootReducerType, initialStateType>(state => state.library)
+    let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
     const [wordIndex, setWordIndex] = useState(0)
     const [playWords, setPlayWords] = useState(library.slice(-10))
-    const [correctWords, setCorrectWords] = useState(0)
-    const [errorWords, setErrorWords] = useState(0)
-    let [cookie, setCookie] = useCookies(['points']);
+    const [cookie, setCookie] = useCookies(['points']);
     const [points, setPoints] = useState(+cookie.points || 0)
 
     useEffect(() => {
@@ -61,20 +60,15 @@ function App() {
                         games.map((game, i) => <Route path={game.path} element={
                             <>
                                 <NavGames
-                                    errorWords={errorWords}
-                                    correctWords={correctWords}
                                     points={points}
                                     wordIndex={wordIndex}
                                 />
                                 <section className={styles.gameContainer}>
                                     <game.element
                                         nextWord={nextWord}
-                                        correctWords={correctWords}
-                                        setCorrectWords={setCorrectWords}
-                                        setErrorWords={setErrorWords}
-                                        errorWords={errorWords}
                                         playWords={playWords}
-                                        wordIndex={wordIndex} setWordIndex={setWordIndex}/>
+                                        wordIndex={wordIndex}
+                                        setWordIndex={setWordIndex}/>
                                 </section>
                             </>
                         }/>)

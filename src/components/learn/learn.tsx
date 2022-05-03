@@ -19,9 +19,6 @@ export const Learn = ({ wordIndex, setWordIndex}: PropsType) => {
         speak(library[wordIndex].translate)
     }, [wordIndex])
 
-    const progressBarWidth = {
-        width: `${(100 / library.slice(-(library.length)).length) * (wordIndex + 1)}vw`
-    };
 
     return (
         <>

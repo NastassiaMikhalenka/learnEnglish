@@ -1,29 +1,26 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import styles from './appGames.module.css'
 import {speak} from "../../../utils/speak";
+import {plusCorrectWordAC, plusErrorWordAC} from "../../../state/user-reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {rootReducerType} from "../../../state/store";
 
 type PropsType = {
     playWords: any
     wordIndex: any
     setWordIndex: any
-    correctWords: any
-    errorWords: any
-    setCorrectWords: any
-    setErrorWords: any
 }
 
 export const CheckIt = ({
                             playWords,
                             wordIndex,
                             setWordIndex,
-                            correctWords,
-                            errorWords,
-                            setCorrectWords,
-                            setErrorWords,
                         }: PropsType) => {
-    // const [randomWords, setRandomWords] = useState(playWords.sort(() => Math.random() - 0.5))
     const randomWords = useMemo(() => playWords.sort(() => Math.random() - 0.5), [])
     const [currentWords, setCurrentWords] = useState(['random', 'current', 'random'])
+    let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)
+    let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
+    const dispatch = useDispatch()
 
 
     useEffect(() => {
@@ -38,14 +35,14 @@ export const CheckIt = ({
     const checkWord = (word: string) => {
         if (word === randomWords[wordIndex].word) {
             speak(randomWords[wordIndex].translate)
-            setCorrectWords(correctWords + 1)
+            dispatch(plusCorrectWordAC(correctWords))
             if (wordIndex !== playWords.length - 1) {
                 setWordIndex(wordIndex + 1)
             } else {
                 alert('Game over!')
             }
         } else {
-            setErrorWords(errorWords + 1)
+            dispatch(plusErrorWordAC(errorWords))
         }
     }
 

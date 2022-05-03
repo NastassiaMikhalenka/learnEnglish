@@ -4,18 +4,17 @@ import {NavLink} from "react-router-dom";
 import {PATH} from "../../App";
 import {useSelector} from "react-redux";
 import {rootReducerType} from "../../state/store";
-import {initialStateType} from "../../state/library_reducer";
 import {ProgressBar} from "../common/progressBar";
 
 
 type PropsType = {
-    errorWords: number
-    correctWords: number
     points: number
     wordIndex: any
 }
 
-export const NavGames = ({errorWords,correctWords, points, wordIndex }: PropsType) => {
+export const NavGames = ({points, wordIndex }: PropsType) => {
+    let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)
+    let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
 
     return (
         <>
