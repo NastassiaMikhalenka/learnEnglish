@@ -1,6 +1,6 @@
 export const initialStateUser = {
-    correctWords: 2,
-    errorWords: 1,
+    correctWords: 0,
+    errorWords: 0,
     wordIndex: 0,
     points: 0,
 };

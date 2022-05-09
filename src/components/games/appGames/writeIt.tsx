@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 import styles from './appGames.module.css'
 import {speak} from "../../../utils/speak";
-import {plusCorrectWordAC, plusErrorWordAC, wordIndexAC} from "../../../state/user-reducer";
+import {plusCorrectWordAC, plusErrorWordAC, pointsAC, wordIndexAC} from "../../../state/user-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../../../state/store";
 
@@ -20,6 +20,7 @@ export const WriteIt = ({playWords,
     let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
     const dispatch = useDispatch()
     let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
+    let points = useSelector<rootReducerType, number>(state => state.usersInfo.points)
 
     const checkWord = (e: any) => {
         e.preventDefault()
@@ -29,6 +30,7 @@ export const WriteIt = ({playWords,
             if (wordIndex !== playWords.length - 1) {
                 dispatch(wordIndexAC(wordIndex))
                 // setWordIndex(wordIndex + 1)
+                dispatch(pointsAC(points))
             } else {
                 alert('Game over!')
             }

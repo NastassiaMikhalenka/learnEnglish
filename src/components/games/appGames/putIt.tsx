@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState} from "react";
 import styles from './appGames.module.css'
-import {plusCorrectWordAC, plusErrorWordAC} from "../../../state/user-reducer";
+import {plusCorrectWordAC, plusErrorWordAC, pointsAC} from "../../../state/user-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../../../state/store";
 
@@ -20,7 +20,7 @@ export const PutIt = ({
     const [arrPutLetter, setArrPutLetter] = useState([]);
     const [splitWords, setSplitWords] = useState([]);
     let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
-
+    let points = useSelector<rootReducerType, number>(state => state.usersInfo.points)
     let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)
     let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
 
@@ -39,10 +39,12 @@ export const PutIt = ({
             let fullWord = currentLettersArray.join('');
             if (fullWord === currentWord) {
                 dispatch(plusCorrectWordAC(correctWords))
+                dispatch(pointsAC(points))
                 nextWord();
                 setArrPutLetter([]);
             } else {
                 dispatch(plusErrorWordAC(errorWords))
+
                 nextWord();
                 setArrPutLetter([]);
             }
