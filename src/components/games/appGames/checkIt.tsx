@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import styles from './appGames.module.css'
 import {speak} from "../../../utils/speak";
 import {plusCorrectWordAC, plusErrorWordAC, pointsAC, resetWordIndexAC, wordIndexAC} from "../../../state/user-reducer";
