@@ -7,6 +7,7 @@ export const PATH = {
     LIBRARY: '/library',
     LEARN: '/learn',
     GAMES: '/games',
+    POPULAR: '/games/game/check-it',
 }
 
 export const Nav = () => {

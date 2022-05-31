@@ -1,20 +1,32 @@
 import React from "react";
 import styles from './dashboard.module.css';
 import btn from '../../utils/img/play.svg'
+import {NavLink} from "react-router-dom";
+import {PATH} from "../nav/nav";
+import games from '../../utils/index'
 
 type PropsType = {
     points: any
 }
 
 export const Dashboard = ({points}: PropsType) => {
+
+    const randomGame = () => {
+        let random = games.sort(() => Math.random() - 0.5);
+        let path = '/' + random[0].path
+        return path;
+    }
+
     return (
         <section className={styles.dashboardContainer}>
             <div className={styles.gameBlock}>
                 <p> The most popular game is <br/>
-                    <b>Speak IT</b>
+                    <b>Check IT</b>
                 </p>
-                <img className={styles.btnPlay} src={btn} alt={""}/>
-                <button className={styles.btnRandom}>Play random game</button>
+                <NavLink to={PATH.POPULAR}>
+                    <img className={styles.btnPlay} src={btn} alt={""}/>
+                </NavLink>
+                <NavLink className={styles.btnRandom} to={randomGame()}>Play random game</NavLink>
             </div>
             <div className={styles.pointsBlock}>
                 <span>Common experience</span>
@@ -24,7 +36,7 @@ export const Dashboard = ({points}: PropsType) => {
                 <span>Level</span>
                 <h3>{(0.2 * Math.sqrt(points)).toFixed()} level</h3>
                 <p>Learn 750 new world in one course</p>
-                <div className={styles.levelBackground}> </div>
+                <div className={styles.levelBackground}></div>
             </div>
         </section>
     )
