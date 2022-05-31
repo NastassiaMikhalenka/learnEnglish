@@ -56,6 +56,12 @@ export const Games = () => {
             description: 'Say the word on the screen and check your spelling'
         },
         {
+            img: imgSpeakAndCheck,
+            path: 'speak-check-it',
+            name: 'Speak and check ',
+            description: 'Say the word on the screen and check your spelling'
+        },
+        {
             img: imgListenAndGuess,
             path: 'listen-it',
             name: 'Guess and listen',
@@ -77,12 +83,6 @@ export const Games = () => {
             img: imgSprintListen,
             path: 'sprint-listen-it',
             name: 'Sprint by listen',
-            description: 'Say the word on the screen and check your spelling'
-        },
-        {
-            img: imgSpeakAndCheck,
-            path: 'speak-check-it',
-            name: 'Speak and check ',
             description: 'Say the word on the screen and check your spelling'
         },
     ]
