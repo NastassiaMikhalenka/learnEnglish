@@ -14,7 +14,7 @@ import {useCookies} from "react-cookie";
 import games from './utils/index'
 import {NavGames} from "./components/games/navGames";
 import {NotFound} from "./components/notFound/notFound";
-import {pointsAC, resetWordIndexAC, wordIndexAC} from "./state/user-reducer";
+import {resetWordIndexAC, wordIndexAC} from "./state/user-reducer";
 
 export const PATH = {
     HOME: '/dashboard',
@@ -26,10 +26,8 @@ export const PATH = {
 function App() {
     const dispatch = useDispatch()
     let library = useSelector<rootReducerType, initialStateType>(state => state.library)
-    let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
     let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
     let points = useSelector<rootReducerType, number>(state => state.usersInfo.points)
-    // const [wordIndex, setWordIndex] = useState(0)
     const [playWords, setPlayWords] = useState(library)
     // const [cookie, setCookie] = useCookies(['points']);
     // const [points, setPoints] = useState(+cookie.points || 0)
@@ -43,11 +41,9 @@ function App() {
     const nextWord = () => {
         if (wordIndex !== playWords.length - 1) {
             dispatch(wordIndexAC(wordIndex))
-            // setWordIndex(wordIndex + 1);
         } else {
             alert('Game is over');
             dispatch(resetWordIndexAC())
-            // setWordIndex(0);
         }
     };
 
@@ -60,24 +56,16 @@ function App() {
                     <Route path={PATH.HOME} element={<Dashboard points={points}/>}/>
                     <Route path={PATH.LIBRARY} element={<Library/>}/>
                     <Route path={PATH.LEARN}
-                           element={<Learn
-                               // wordIndex={wordIndex} setWordIndex={setWordIndex}
-                           />}/>
+                           element={<Learn/>}/>
                     <Route path={PATH.GAMES} element={<Games/>}/>
                     {
                         games.map((game, i) => <Route path={game.path} element={
                             <>
-                                <NavGames
-                                    // playWords={playWords}
-                                    // points={points}
-                                    // wordIndex={wordIndex}
-                                />
+                                <NavGames/>
                                 <section className={styles.gameContainer}>
                                     <game.element
                                         nextWord={nextWord}
                                         playWords={playWords}
-                                        // wordIndex={wordIndex}
-                                        // setWordIndex={setWordIndex}
                                     />
                                 </section>
                             </>

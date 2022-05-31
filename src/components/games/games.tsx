@@ -32,9 +32,9 @@ export const Games = () => {
 
     const GAMES = [
         {
-            img: imgSpeakAndCheck,
-            path: 'speak-check-it',
-            name: 'Speak and check ',
+            img: imgWriteTranslation,
+            path: 'write-it',
+            name: 'Write the translation',
             description: 'Say the word on the screen and check your spelling'
         },
         {
@@ -50,15 +50,15 @@ export const Games = () => {
             description: 'Say the word on the screen and check your spelling'
         },
         {
-            img: imgListenAndGuess,
-            path: 'listen-it',
-            name: 'Guess and listen',
-            description: 'Say the word on the screen and check your spelling'
-        },
-        {
             img: imgSprintGuess,
             path: 'sprint-it',
             name: 'Sprint by guessing',
+            description: 'Say the word on the screen and check your spelling'
+        },
+        {
+            img: imgListenAndGuess,
+            path: 'listen-it',
+            name: 'Guess and listen',
             description: 'Say the word on the screen and check your spelling'
         },
         {
@@ -74,15 +74,15 @@ export const Games = () => {
             description: 'Say the word on the screen and check your spelling'
         },
         {
-            img: imgWriteTranslation,
-            path: 'write-it',
-            name: 'Write the translation',
-            description: 'Say the word on the screen and check your spelling'
-        },
-        {
             img: imgSprintListen,
             path: 'sprint-listen-it',
             name: 'Sprint by listen',
+            description: 'Say the word on the screen and check your spelling'
+        },
+        {
+            img: imgSpeakAndCheck,
+            path: 'speak-check-it',
+            name: 'Speak and check ',
             description: 'Say the word on the screen and check your spelling'
         },
     ]

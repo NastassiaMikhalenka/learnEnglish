@@ -1,0 +1,65 @@
+.sprintContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sprintTimerContainer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 40px;
+    box-sizing: border-box;
+    box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18), inset 2px 2px 4px rgba(0, 0, 0, 0.24), inset -8px -8px 15px rgba(255, 255, 255, 0.02), inset 8px 8px 15px rgba(10, 46, 82, 0.21);
+    text-align: center;
+}
+
+.timerValue {
+    margin-top: 27px;
+}
+
+.containerTrue {
+    width: 140px;
+    text-align: center;
+}
+
+
+.containerBtns {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.englishWord {
+    margin: 20px 0;
+}
+
+.russianWord {
+    font-size: 26px;
+}
+
+.btnNo {
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    color: #ffff;
+    background-color: red;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btnYes {
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    color: #ffff;
+    background-color: green;
+    border-radius: 20px;
+    cursor: pointer;
+}
