@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/learnEnglish/static/css/main.436c5013.css",
-    "main.js": "/learnEnglish/static/js/main.0a4118df.js",
+    "main.js": "/learnEnglish/static/js/main.1f856b7f.js",
     "static/js/787.64021b98.chunk.js": "/learnEnglish/static/js/787.64021b98.chunk.js",
     "static/media/speak-and-check.svg": "/learnEnglish/static/media/speak-and-check.3afb65685973590868c55153cb22d090.svg",
     "static/media/check-the-correct-one.svg": "/learnEnglish/static/media/check-the-correct-one.c7208df0b5f4002bbefbc4b24804b5ae.svg",
@@ -25,11 +25,11 @@
     "index.html": "/learnEnglish/index.html",
     "static/media/progress-bar.svg": "/learnEnglish/static/media/progress-bar.a8f6ba9dbc7db633b9e1.svg",
     "main.436c5013.css.map": "/learnEnglish/static/css/main.436c5013.css.map",
-    "main.0a4118df.js.map": "/learnEnglish/static/js/main.0a4118df.js.map",
+    "main.1f856b7f.js.map": "/learnEnglish/static/js/main.1f856b7f.js.map",
     "787.64021b98.chunk.js.map": "/learnEnglish/static/js/787.64021b98.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.436c5013.css",
-    "static/js/main.0a4118df.js"
+    "static/js/main.1f856b7f.js"
   ]
 }
