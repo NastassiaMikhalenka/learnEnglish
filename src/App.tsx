@@ -59,7 +59,7 @@ function App() {
                            element={<Learn/>}/>
                     <Route path={PATH.GAMES} element={<Games/>}/>
                     {
-                        games.map((game, i) => <Route path={game.path} element={
+                        games.map((game, i) => <Route path={game.path} key={i} element={
                             <>
                                 <NavGames/>
                                 <section className={styles.gameContainer}>

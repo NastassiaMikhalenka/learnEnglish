@@ -17,7 +17,6 @@ import {resetWordIndexAC} from "../../state/user-reducer";
 export const Games = () => {
     const dispatch = useDispatch()
     let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
-    console.log(wordIndex)
 
     useEffect(() => {
         if (wordIndex > 0) {
