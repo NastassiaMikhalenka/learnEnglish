@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react'
 import styles from "./games.module.css";
-
-
 import imgCheckCorrect from '../../utils/img/check-the-correct-one.svg';
 import imgSelectTranslation from '../../utils/img/select-translation.svg';
 import imgSprintGuess from '../../utils/img/sprint-guess.svg';
@@ -26,9 +24,6 @@ export const Games = () => {
             dispatch(resetWordIndexAC())
         }
     },[])
-    // useEffect(() => {
-    //     if()
-    //         })
 
     const GAMES = [
         {

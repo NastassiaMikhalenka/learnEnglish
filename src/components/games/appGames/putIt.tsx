@@ -7,13 +7,11 @@ import {rootReducerType} from "../../../state/store";
 type PropsType = {
     playWords: any
     nextWord: any
-    // wordIndex: any
 }
 
 export const PutIt = ({
                           playWords,
                           nextWord,
-                          // wordIndex,
                       }: PropsType) => {
     const randomWords = useMemo(() => playWords.sort(() => Math.random() - 0.5), [])
     const dispatch = useDispatch()

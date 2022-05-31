@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './library.module.css';
 import btn from '../../utils/img/add.svg';
 import deleteBtn from '../../utils/img/delete.svg';
@@ -6,12 +6,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {addNewWordAC, deleteWordAC, initialStateType} from "../../state/library_reducer";
 import {rootReducerType} from "../../state/store";
 
-type PropsType = {
-    // library: Array<any>
-    // setLibrary: any
-}
 
-export const Library = (props: PropsType) => {
+export const Library = () => {
     let library = useSelector<rootReducerType, initialStateType>(state => state.library)
     let dispatch = useDispatch()
     const [value, setValue] = useState<string>("")
@@ -25,7 +21,6 @@ export const Library = (props: PropsType) => {
         e.preventDefault()
         const response = await fetch(`http://tmp.myitschool.org/API/translate/?source=ru&target=en&word=${value}`)
         const translation = await response.json()
-        // console.log(translation.translate)
         dispatch(addNewWordAC(translation.word, translation.translate));
         setValue('')
     }

@@ -4,19 +4,12 @@ import {speak} from "../../../utils/speak";
 import {plusCorrectWordAC, plusErrorWordAC, pointsAC, resetWordIndexAC, wordIndexAC} from "../../../state/user-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../../../state/store";
-import {initialStateType} from "../../../state/library_reducer";
 
 type PropsType = {
     playWords: any
-    // wordIndex: any
-    // setWordIndex: any
 }
 
-export const CheckIt = ({
-                            playWords,
-                            // wordIndex,
-                            // setWordIndex,
-                        }: PropsType) => {
+export const CheckIt = ({playWords}: PropsType) => {
     const randomWords = useMemo(() => playWords.sort(() => Math.random() - 0.5), [])
     const [currentWords, setCurrentWords] = useState(['random', 'current', 'random'])
     let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)

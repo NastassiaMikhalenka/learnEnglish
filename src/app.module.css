@@ -33,11 +33,11 @@ h3 {
 }
 
 .btnSpeak {
-    background-image: url("utils/img/speakbtn.svg");
+    background-image: url("utils/img/Vector.svg");
     width: 40px;
     height: 97px;
     background-repeat: no-repeat;
-    background-size: 25px;
+    background-size: 50px;
     border: none;
     background-position: center;
     cursor: pointer;

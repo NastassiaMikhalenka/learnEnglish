@@ -7,13 +7,9 @@ import {rootReducerType} from "../../../state/store";
 
 type PropsType = {
     playWords: any
-    // wordIndex: any
-    // setWordIndex: any
 }
 
-export const WriteIt = ({playWords,
-                            // wordIndex, setWordIndex
-}: PropsType) => {
+export const WriteIt = ({playWords}: PropsType) => {
     const input = useRef() as React.MutableRefObject<HTMLInputElement>
     const [randomWords, setRandomWords] = useState(playWords.sort(() => Math.random() - 0.5))
     let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)

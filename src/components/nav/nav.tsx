@@ -1,6 +1,6 @@
 import React from "react";
-import {NavLink, Route, Routes} from "react-router-dom";
-import styles from './nav.module.css'
+import {NavLink} from "react-router-dom";
+import styles from './nav.module.css';
 
 export const PATH = {
     HOME: '/dashboard',
