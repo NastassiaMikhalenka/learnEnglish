@@ -78,7 +78,7 @@ h3 {
     height: 30px;
     display: flex;
     justify-content: flex-start;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .splitWordsLetter,
@@ -95,4 +95,5 @@ h3 {
     color: #000000;
     background: #ECEDF2;
     box-shadow: 2px 2px 5px rgba(10, 46, 82, 0.16), -8px -8px 40px rgba(255, 255, 255, 0.56), 8px 8px 15px rgba(0, 0, 0, 0.17);
+    cursor: pointer;
 }
