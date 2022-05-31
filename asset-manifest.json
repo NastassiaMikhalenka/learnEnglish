@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/learnEnglish/static/css/main.436c5013.css",
+    "main.js": "/learnEnglish/static/js/main.0a4118df.js",
+    "static/js/787.64021b98.chunk.js": "/learnEnglish/static/js/787.64021b98.chunk.js",
+    "static/media/speak-and-check.svg": "/learnEnglish/static/media/speak-and-check.3afb65685973590868c55153cb22d090.svg",
+    "static/media/check-the-correct-one.svg": "/learnEnglish/static/media/check-the-correct-one.c7208df0b5f4002bbefbc4b24804b5ae.svg",
+    "static/media/listen-sprint.svg": "/learnEnglish/static/media/listen-sprint.3b7aeae4b84dc616e629ecb7492070a0.svg",
+    "static/media/sprint-guess.svg": "/learnEnglish/static/media/sprint-guess.6dbd36686e7884b94e595dae09c63462.svg",
+    "static/media/listen-and-guess.svg": "/learnEnglish/static/media/listen-and-guess.3c32a5c6710fb15a7c57b503bedede11.svg",
+    "static/media/select-translation.svg": "/learnEnglish/static/media/select-translation.4e1ca3ee76f8445f06c2d87050dcd85c.svg",
+    "static/media/put-translation.svg": "/learnEnglish/static/media/put-translation.a15ccce5f40c2299a8172d570b0d460a.svg",
+    "static/media/Icon.svg": "/learnEnglish/static/media/Icon.026009144e9ee498a9b55e9408918f57.svg",
+    "static/media/remember-translation.svg": "/learnEnglish/static/media/remember-translation.7c3cb73fecc155e62028fc5282aa132e.svg",
+    "static/media/write-translation.svg": "/learnEnglish/static/media/write-translation.40c6529e93c2bd601839b3c79ea136ae.svg",
+    "static/media/speakbtn.svg": "/learnEnglish/static/media/speakbtn.eb58e122f51f4e7d623e.svg",
+    "static/media/Vector.svg": "/learnEnglish/static/media/Vector.cc6cb105a9dbaae6f7ce.svg",
+    "static/media/add.svg": "/learnEnglish/static/media/add.d9b589b4e68fe0f952dfa34dc96e191f.svg",
+    "static/media/arrow.svg": "/learnEnglish/static/media/arrow.4c9de69ec125ca8c8f83.svg",
+    "static/media/delete.svg": "/learnEnglish/static/media/delete.4f256c70e6783232c7c86e1bf765e381.svg",
+    "static/media/level-background.svg": "/learnEnglish/static/media/level-background.747282cc8c9e5fd5b0dd.svg",
+    "static/media/bg-game.svg": "/learnEnglish/static/media/bg-game.7c272d07314a1e0bda83.svg",
+    "static/media/play.svg": "/learnEnglish/static/media/play.d4ea34d90695594517636344cbe41953.svg",
+    "static/media/done.svg": "/learnEnglish/static/media/done.ecab53f02175ae6641d9.svg",
+    "index.html": "/learnEnglish/index.html",
+    "static/media/progress-bar.svg": "/learnEnglish/static/media/progress-bar.a8f6ba9dbc7db633b9e1.svg",
+    "main.436c5013.css.map": "/learnEnglish/static/css/main.436c5013.css.map",
+    "main.0a4118df.js.map": "/learnEnglish/static/js/main.0a4118df.js.map",
+    "787.64021b98.chunk.js.map": "/learnEnglish/static/js/787.64021b98.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.436c5013.css",
+    "static/js/main.0a4118df.js"
+  ]
+}
