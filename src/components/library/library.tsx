@@ -19,7 +19,7 @@ export const Library = () => {
 
     const addNewWord = async (e: any) => {
         e.preventDefault()
-        const response = await fetch(`http://tmp.myitschool.org/API/translate/?source=ru&target=en&word=${value}`)
+        const response = await fetch(`https://tmp.myitschool.org/API/translate/?source=ru&target=en&word=${value}`)
         const translation = await response.json()
         dispatch(addNewWordAC(translation.word, translation.translate));
         setValue('')
