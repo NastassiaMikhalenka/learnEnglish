@@ -49,7 +49,7 @@ export const Sprint = ({nextWord, playWords}: PropsType) => {
         <section className={styles.sprintContainer}>
             {
                 playWords.length === 0
-                    ? <div>Добавь</div>
+                    ? <div>Add words to the library</div>
                     : <>
                         <div className={styles.sprintTimerContainer}>
                             <p className={styles.timerValue}>{timerValue}</p>

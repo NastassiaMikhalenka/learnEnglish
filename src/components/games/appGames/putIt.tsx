@@ -64,7 +64,7 @@ export const PutIt = ({
         <section>
             {
                 playWords.length === 0
-                    ? <div>Добавь</div>
+                    ? <div>Add words to the library</div>
                     : <>
                         <span>Put together a translation</span>
                         <h3>{randomWords[wordIndex].word}</h3>

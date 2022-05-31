@@ -42,7 +42,7 @@ export const WriteIt = ({playWords}: PropsType) => {
         <section>
             {
                 playWords.length === 0
-                    ? <div>Добавь</div>
+                    ? <div>Add words to the library</div>
                     : <>
                         <span>Write a translation for this word</span>
                         <h3>{randomWords[wordIndex].word}</h3>

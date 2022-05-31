@@ -51,7 +51,7 @@ export const CheckIt = ({playWords}: PropsType) => {
         <section>
             {
                 playWords.length <= 2
-                    ? <div>Нужно минимум 3 слова </div>
+                    ? <div>Add words to the library. Need at least 3 :)</div>
                     : <>
                         <span>Write a translation for this word</span>
                         <h3>{randomWords[wordIndex].translate}</h3>

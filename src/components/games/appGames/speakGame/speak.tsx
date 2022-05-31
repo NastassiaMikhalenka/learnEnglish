@@ -52,7 +52,7 @@ export const Speak = ({nextWord, playWords}: PropsType) => {
         <section className={styles.speakContainer}>
             {
                 library.length === 0
-                    ? <div>Добавь слова в библиотеку</div>
+                    ? <div>Add words to the library</div>
                     : <>  <span>Say this word</span>
                         <h3 className={styles.englishWord}>{playWords[wordIndex].translate}</h3>
                         <div className={styles.textVoice}>
