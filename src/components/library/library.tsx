@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './library.module.css';
 import btn from '../../utils/img/add.svg';
 import deleteBtn from '../../utils/img/delete.svg';
@@ -44,13 +44,13 @@ export const Library = (props: PropsType) => {
                 <ul>
                     <li><h3>Word</h3></li>
                     <li><h3>Translation</h3></li>
-                    <li><h3>Learn</h3></li>
+                    {/*<li><h3>Learn</h3></li>*/}
                 </ul>
                 {library.map((item, index) => (
                     <ul key={index}>
                         <li>{item.word}</li>
                         <li>{item.translate}</li>
-                        <li>{item.learn}</li>
+                        {/*<li>{item.learn}</li>*/}
                         <div className={styles.settings}>
                             <button onClick={() => deleteWord(index)}>
                                 <img src={deleteBtn} alt={""}/>

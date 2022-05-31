@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styles from "./games.module.css";
 
 
@@ -12,8 +12,24 @@ import imgRememberTranslation from '../../utils/img/remember-translation.svg';
 import imgWriteTranslation from '../../utils/img/write-translation.svg';
 import imgListenAndGuess from '../../utils/img/listen-and-guess.svg';
 import {NavLink} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {rootReducerType} from "../../state/store";
+import {resetWordIndexAC} from "../../state/user-reducer";
 
 export const Games = () => {
+    const dispatch = useDispatch()
+    let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
+    console.log(wordIndex)
+
+    useEffect(() => {
+        if (wordIndex > 0) {
+            dispatch(resetWordIndexAC())
+        }
+    },[])
+    // useEffect(() => {
+    //     if()
+    //         })
+
     const GAMES = [
         {
             img: imgSpeakAndCheck,

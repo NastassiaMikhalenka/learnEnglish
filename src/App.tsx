@@ -30,16 +30,15 @@ function App() {
     let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
     let points = useSelector<rootReducerType, number>(state => state.usersInfo.points)
     // const [wordIndex, setWordIndex] = useState(0)
-    const [playWords, setPlayWords] = useState(library.slice(-10))
+    const [playWords, setPlayWords] = useState(library)
     // const [cookie, setCookie] = useCookies(['points']);
     // const [points, setPoints] = useState(+cookie.points || 0)
 
-    // useEffect(() => {
-    //     if (correctWords) {
-    //         dispatch(pointsAC(points))
-    //         // setCookie('points', points + 1)
-    //     }
-    // }, [correctWords])
+
+
+    useEffect(() => {
+        setPlayWords(library.sort(() => Math.random() - 0.5).slice(0, 10))
+    }, [library])
 
     const nextWord = () => {
         if (wordIndex !== playWords.length - 1) {
@@ -71,7 +70,7 @@ function App() {
                                 <NavGames
                                     // playWords={playWords}
                                     // points={points}
-                                    wordIndex={wordIndex}
+                                    // wordIndex={wordIndex}
                                 />
                                 <section className={styles.gameContainer}>
                                     <game.element

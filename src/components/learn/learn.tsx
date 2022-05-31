@@ -19,21 +19,28 @@ export const Learn = (
     let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        if (wordIndex === library.length) return
-        speak(library[wordIndex].translate)
-    }, [wordIndex])
+
+    // useEffect(() => {
+    //     if (library) {
+    //         speak(library[wordIndex].translate)
+    //     }
+    //     // speak(library[wordIndex].translate)
+    // }, [])
 
 
     const progressBarWidth = {
         width: `${(100 / library.slice(-10).length) * (wordIndex + 1)}vw`
     };
 
+    const listen =() => {
+        speak(library[wordIndex].translate)
+    }
+
     return (
         <>
             {/*<ProgressBar wordIndex={wordIndex}/>*/}
             <div className={styles.progressBarContainer}>
-                <div className={styles.progressBar} style={progressBarWidth}> </div>
+                <div className={styles.progressBar} style={progressBarWidth}></div>
             </div>
             <section style={{textAlign: 'center'}}>
                 {
@@ -43,16 +50,18 @@ export const Learn = (
                         <>
                             <span>{library[wordIndex].word}</span>
                             <h3>{library[wordIndex].translate}</h3>
+                            <div onClick={listen} className={styles.btnSpeak}> </div>
                             <div onClick={() => {
                                 if (wordIndex === library.length - 1) {
                                     dispatch(resetWordIndexAC())
                                     // setWordIndex(0)
                                 } else {
+                                    // speak(library[wordIndex].translate)
                                     dispatch(wordIndexAC(wordIndex))
                                     // setWordIndex(wordIndex + 1)
                                 }
                             }}
-                                 className={styles.btnNext}> </div>
+                                 className={styles.btnNext}></div>
                         </>
 
                 }

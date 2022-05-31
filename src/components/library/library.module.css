@@ -14,7 +14,7 @@ section {
 
 .addWordBlock {
     display: grid;
-    grid-template-columns: 3fr auto;
+    grid-template-columns: 2fr auto;
     column-gap: 30px;
     justify-items: center;
     margin: 60px;
@@ -114,7 +114,7 @@ section {
 .wordsTable > ul {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-items: start;
     column-gap: 30px;
     list-style-type: none;

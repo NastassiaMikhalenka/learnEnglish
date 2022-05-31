@@ -33,11 +33,6 @@
 
 @media (max-width: 768px) {
     .nav {
-        display: none;
-        grid-auto-flow: row;
-    }
-
-    .nav.show {
-        display: grid;
+        column-gap: 10px;
     }
 }

@@ -25,7 +25,9 @@ export const PutIt = ({
     let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
 
     useEffect(() => {
-        setSplitWords(randomWords[wordIndex].translate.split('').sort())
+        if (playWords.length) {
+            setSplitWords(randomWords[wordIndex].translate.split('').sort())
+        }
     }, [wordIndex])
 
     const putWord = (item: any) => {
@@ -62,18 +64,26 @@ export const PutIt = ({
 
     return (
         <section>
-            <span>Put together a translation</span>
-            <h3>{randomWords[wordIndex].word}</h3>
-            <div className={styles.putWordsContainer}>
-                {arrPutLetter.map((letter, index) => (
-                    <div key={index} onClick={() => returnWord(letter)} className={styles.putWordsLetter}>{letter}</div>
-                ))}
-            </div>
-            <div className={styles.splitWordsContainer}>
-                {splitWords.map((item, index) => (
-                    <div className={styles.splitWordsLetter} key={index} onClick={() => putWord(item)}>{item}</div>
-                ))}
-            </div>
+            {
+                playWords.length === 0
+                    ? <div>Добавь</div>
+                    : <>
+                        <span>Put together a translation</span>
+                        <h3>{randomWords[wordIndex].word}</h3>
+                        <div className={styles.putWordsContainer}>
+                            {arrPutLetter.map((letter, index) => (
+                                <div key={index} onClick={() => returnWord(letter)}
+                                     className={styles.putWordsLetter}>{letter}</div>
+                            ))}
+                        </div>
+                        <div className={styles.splitWordsContainer}>
+                            {splitWords.map((item, index) => (
+                                <div className={styles.splitWordsLetter} key={index}
+                                     onClick={() => putWord(item)}>{item}</div>
+                            ))}
+                        </div>
+                    </>
+            }
         </section>
     )
 }

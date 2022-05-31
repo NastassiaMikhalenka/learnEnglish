@@ -39,3 +39,16 @@
     min-height: 184px;
     font-size: 20px;
 }
+
+
+.btnBack{
+    box-shadow: 2px 2px 2px rgba(10, 46, 82, 0.16);
+    border-radius: 50px;
+    background-image: url("/src/utils/img/arrow.svg");
+    height: 40px;
+    width: 90px;
+    background-repeat: no-repeat;
+    background-size: 45px;
+    border: none;
+    background-position: center;
+}

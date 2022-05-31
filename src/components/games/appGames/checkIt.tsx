@@ -4,6 +4,7 @@ import {speak} from "../../../utils/speak";
 import {plusCorrectWordAC, plusErrorWordAC, pointsAC, resetWordIndexAC, wordIndexAC} from "../../../state/user-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../../../state/store";
+import {initialStateType} from "../../../state/library_reducer";
 
 type PropsType = {
     playWords: any
@@ -26,17 +27,13 @@ export const CheckIt = ({
 
 
     useEffect(() => {
-        // if (wordIndex === playWords.length) return
-
-        // if (wordIndex === playWords.length - 1) {
-        //     dispatch(resetWordIndexAC())
-        //     // setWordIndex(0)
-        // }
-        setCurrentWords([
-            randomWords[wordIndex].word,
-            randomWords[(wordIndex + 1)%randomWords.length].word,
-            randomWords[(wordIndex + 2)%randomWords.length].word,
-        ].sort(() => Math.random() - .5))
+        if (playWords.length) {
+            setCurrentWords([
+                randomWords[wordIndex].word,
+                randomWords[(wordIndex + 1) % randomWords.length].word,
+                randomWords[(wordIndex + 2) % randomWords.length].word,
+            ].sort(() => Math.random() - .5))
+        }
     }, [wordIndex])
 
 
@@ -59,16 +56,22 @@ export const CheckIt = ({
 
     return (
         <section>
-            <span>Write a translation for this word</span>
-            <h3>{randomWords[wordIndex].translate}</h3>
-            <ul className={styles.btnContainer}>
-                {currentWords.map((word, index) => {
-                    return (
-                        <li key={index}
-                            className={styles.btnCheck} onClick={() => checkWord(word)}>{word}</li>
-                    )
-                })}
-            </ul>
+            {
+                playWords.length <= 2
+                    ? <div>Нужно минимум 3 слова </div>
+                    : <>
+                        <span>Write a translation for this word</span>
+                        <h3>{randomWords[wordIndex].translate}</h3>
+                        <ul className={styles.btnContainer}>
+                            {currentWords.map((word, index) => {
+                                return (
+                                    <li key={index}
+                                        className={styles.btnCheck} onClick={() => checkWord(word)}>{word}</li>
+                                )
+                            })}
+                        </ul>
+                    </>
+            }
         </section>
     )
 }

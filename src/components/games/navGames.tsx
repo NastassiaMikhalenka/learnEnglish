@@ -11,18 +11,18 @@ import {initialStateType} from "../../state/library_reducer";
 type PropsType = {
 //     playWords: any
 //     points: number
-    wordIndex: any
+//     wordIndex: any
 }
 
 export const NavGames = ({
 // playWords
                              // points,
-                             wordIndex
+                             // wordIndex
 }: PropsType) => {
-    let library = useSelector<rootReducerType, initialStateType>(state => state.library)
     let errorWords = useSelector<rootReducerType, number>(state => state.usersInfo.errorWords)
     let correctWords = useSelector<rootReducerType, number>(state => state.usersInfo.correctWords)
     let points = useSelector<rootReducerType, number>(state => state.usersInfo.points)
+    let wordIndex = useSelector<rootReducerType, number>(state => state.usersInfo.wordIndex)
 
     return (
         <>

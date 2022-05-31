@@ -12,3 +12,14 @@
 .header svg {
     height: 50px;
 }
+
+
+@media (max-width: 600px) {
+    .header {
+        display: flex;
+    }
+
+    .header svg {
+        height: 30px;
+    }
+}
